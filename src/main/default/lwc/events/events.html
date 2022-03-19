@@ -26,12 +26,20 @@
                 <div class="slds-form-element__control">
                     <textarea
                         id="eventPayload"
+                        data-id="textarea"
                         class="slds-textarea payload"
                         disabled
                     >
 {selectedEventPayload}</textarea
                     >
                 </div>
+            </div>
+            <div class="slds-align_absolute-center slds-m-top_medium">
+                <lightning-button
+                    variant="brand"
+                    label="Copy to Clipboard"
+                    onclick={handleCopyToClipboard}
+                ></lightning-button>
             </div>
         </div>
     </c-modal>

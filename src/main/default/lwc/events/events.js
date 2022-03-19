@@ -159,6 +159,17 @@ export default class EventList extends LightningElement {
         this.selectedEvent = EMPTY_EVENT_DATA;
     }
 
+    handleCopyToClipboard() {
+        let payloadElement = document.createElement('textarea');
+        payloadElement.value = this.template.querySelector(
+            '[data-id="textarea"]'
+        )?.value;
+        this.template.appendChild(payloadElement);
+        payloadElement.select();
+        document.execCommand('copy');
+        payloadElement.remove();
+    }
+
     get eventCountLabel() {
         const totalEvents = this.events.length;
         const filteredEvents = this.filteredEvents.length;
